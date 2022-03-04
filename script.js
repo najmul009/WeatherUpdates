@@ -7,3 +7,19 @@ const serachTemprature =()=>{
     .then(data => displayTemprature(data))
     .catch(error => console.log(error))
 }
+
+const displayTemprature=(data)=>{
+    console.log(data)
+    const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+    const city = document.getElementById('city')
+    const temprature = document.getElementById('temprature')
+    const weather = document.getElementById('weather')
+    const icon = document.getElementById('icon')
+    
+    icon.setAttribute('src',iconUrl)
+    city.innerText = data.name
+    temprature.innerText = data.main.temp
+    weather.innerText = data.weather[0].main
+
+
+}
